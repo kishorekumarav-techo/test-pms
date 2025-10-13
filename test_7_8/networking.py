@@ -24,7 +24,7 @@ class WorkerThread(threading.Thread):
         fetcher = Fetcher(self.url)
         data = fetcher.fetch()
         print(f"Fetched {len(data)} characters from {self.url}")
-        time.sleep(4)  # Blocking in thread without any timeout or async strategy
+        time.sleep(4)
 
 class Manager:
     def __init__(self):
@@ -39,7 +39,6 @@ class Manager:
         ]
 
     def cpu_intensive_task(self):
-        # Simulate CPU intensive work
         for _ in range(1000000):
             x = random.random()
             _ = math.sqrt(x * x + 2)
