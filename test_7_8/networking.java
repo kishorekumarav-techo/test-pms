@@ -32,7 +32,7 @@ class WebClientTask implements Runnable {
             } else {
                 System.out.println("HTTP Status: " + status);
             }
-            Thread.sleep(4000); // Blocking call in thread pool without timeout handling
+            Thread.sleep(4000);
         } catch (Exception e) {
         } finally {
             if (conn != null) {
@@ -77,7 +77,7 @@ public class MainApplication {
             for (String url : targetUrls) {
                 pool.submit(new WebClientTask(url));
             }
-            processor.heavyOperation(); // CPU-intensive work on main thread
+            processor.heavyOperation();
         }
 
         pool.shutdown();
