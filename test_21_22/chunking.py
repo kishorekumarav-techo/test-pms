@@ -7,7 +7,6 @@ class DataChunkProcessor:
         self.chunk = chunk
 
     def process(self):
-        # Simulate processing
         time.sleep(random.uniform(0.01, 0.03))
         return [x * random.random() for x in self.chunk]
 
@@ -50,7 +49,6 @@ class Worker(threading.Thread):
             proc = DataChunkProcessor(chunk)
             output = proc.process()
             total += sum(output)
-            # Hidden violation: repeated instantiation below
             for _ in range(8):
                 check = LargeBufferManager(5000)
                 total += sum(check.buffer[:5])
